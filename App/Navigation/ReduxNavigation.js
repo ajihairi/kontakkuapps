@@ -5,28 +5,35 @@ import { createReduxBoundAddListener } from 'react-navigation-redux-helpers'
 import { connect } from 'react-redux'
 import AppNavigation from './AppNavigation'
 
+
+const addListener = createReduxBoundAddListener("root");
+
 class ReduxNavigation extends React.Component {
-  componentWillMount () {
-    if (Platform.OS === 'ios') return
-    BackHandler.addEventListener('hardwareBackPress', () => {
-      const { dispatch, nav } = this.props
-      // change to whatever is your first screen, otherwise unpredictable results may occur
-      if (nav.routes.length === 1 && (nav.routes[0].routeName === 'ContactScreen')) {
-        return false
-      }
-      // if (shouldCloseApp(nav)) return false
-      dispatch({ type: 'Navigation/BACK' })
-      return true
-    })
+  componentDidMount() {
+    BackHandler.addEventListener("hardwareBackPress", this.onBackPress);
   }
-
-  componentWillUnmount () {
-    if (Platform.OS === 'ios') return
-    BackHandler.removeEventListener('hardwareBackPress')
+  componentWillUnmount() {
+    BackHandler.removeEventListener("hardwareBackPress", this.onBackPress);
   }
+  onBackPress = () => {
+    const { dispatch, nav } = this.props;
+    if (nav.index === 0) {
+      return false;
+    }
+    dispatch(NavigationActions.back());
+    return true;
+  };
 
-  render () {
-    return <AppNavigation navigation={addNavigationHelpers({ dispatch: this.props.dispatch, state: this.props.nav, addListener: createReduxBoundAddListener('root') })} />
+  render() {
+    const { dispatch, nav } = this.props;
+    const navigation = addNavigationHelpers({
+      dispatch,
+      state: nav
+      
+    });
+    return <AppNavigation navigation={navigation} />
+    // return <AppNavigation navigation={addNavigationHelpers({ dispatch: this.props.dispatch, state: this.props.nav, addListener: createReduxBoundAddListener('root') })} />
+    r
   }
 }
 
