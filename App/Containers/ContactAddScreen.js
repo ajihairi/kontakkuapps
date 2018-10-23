@@ -65,11 +65,11 @@ class ContactAddScreen extends Component {
   }
 
   componentWillReceiveProps (nextProps) {
-    if (!nextProps.addUser.fetching && this.state.isFetching && !this.state.isEdit) {
-      if (nextProps.addUser.payload) {
+    if (!nextProps.createUser.fetching && this.state.isFetching && !this.state.isEdit) {
+      if (nextProps.createUser.payload) {
         this.props.navigation.dispatch(NavigationActions.back({key: null}))
       }
-      if (nextProps.addUser.error) {
+      if (nextProps.createUser.error) {
         console.tron.warn('error')
       }
       this.setState({isFetching: false})
@@ -115,7 +115,7 @@ class ContactAddScreen extends Component {
 
       this.props.doEditUser(data)
     } else {
-      this.props.doAddUser(data)
+      this.props.doCreateUser(data)
     }
   }
 
@@ -258,14 +258,14 @@ class ContactAddScreen extends Component {
 
 const mapStateToProps = (state) => {
   return {
-    addUser: state.user.createUser,
+    createUser: state.user.createUser,
     editUser: state.user.updateUser
   }
 }
 
 const mapDispatchToProps = (dispatch) => {
   return {
-    doAddUser: (data) => dispatch(UserActions.createUserRequest(data)),
+    doCreateUser: (data) => dispatch(UserActions.createUserRequest(data)),
     doEditUser: (data) => dispatch(UserActions.updateUserInfoRequest(data))
   }
 }

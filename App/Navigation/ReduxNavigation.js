@@ -1,11 +1,15 @@
 import React from 'react'
 import { BackHandler, Platform } from 'react-native'
 import { addNavigationHelpers } from 'react-navigation'
-import { createReduxBoundAddListener } from 'react-navigation-redux-helpers'
+import { createReduxBoundAddListener,
+  createReactNavigationReduxMiddleware } from 'react-navigation-redux-helpers'
 import { connect } from 'react-redux'
 import AppNavigation from './AppNavigation'
 
-
+const middleware = createReactNavigationReduxMiddleware(
+  "root",
+  state => state.nav,
+);
 const addListener = createReduxBoundAddListener("root");
 
 class ReduxNavigation extends React.Component {

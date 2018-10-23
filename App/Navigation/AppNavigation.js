@@ -8,9 +8,10 @@ import styles from './Styles/NavigationStyles'
 
 // Manifest of possible screens
 const PrimaryNav = StackNavigator({
-  ContactAddScreen: { screen: ContactAddScreen },
-  ContactDetailScreen: { screen: ContactDetailScreen },
   ContactListScreen: { screen: ContactListScreen },
+  ContactDetailScreen: { screen: ContactDetailScreen },
+  ContactAddScreen: { screen: ContactAddScreen },
+  
   LaunchScreen: { screen: LaunchScreen }
 }, {
   // Default config for all screens

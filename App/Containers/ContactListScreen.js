@@ -7,7 +7,6 @@ import { connect } from 'react-redux'
 import UserActions from '../Redux/UserRedux'
 
 import {ContactRow} from '../Components/ContactRow'
-import {SearchBar} from '../Components/SearchBar'
 import { Colors } from '../Themes';
 
 // Styles
@@ -18,8 +17,7 @@ class ContactListScreen extends Component {
     super(props)
     this.state = {
       userList: [],
-      refreshing: true,
-      search: ''
+      refreshing: true
     }
   }
 
@@ -42,34 +40,11 @@ class ContactListScreen extends Component {
     this.props.getUserList()
   }
 
-  _onClear () {
-    this.setState({search: '', userList: this.props.userList.payload.data})
-  }
-
-  _onSearch (text) {
-    let newUserList = []
-    if (this.props.userList.payload) {
-      newUserList = [...this.props.userList.payload.data].filter(item => {
-        const firstName = item.first_name.toLowerCase()
-        const lastName = item.last_name.toLowerCase()
-        const newText = text.toLowerCase()
-        const phone = item.phone.toLowerCase()
-        return firstName.includes(newText) || lastName.includes(newText) || phone.includes(newText)
-      })
-    }
-    this.setState({search: text, userList: newUserList})
-  }
-
   render () {
     const {navigate} = this.props.navigation
 
     return (
       <Container>
-        <SearchBar
-          onChangeText={this._onSearch.bind(this)}
-          value={this.state.search}
-          onClear={this._onClear.bind(this)}
-        />
         <FlatList
           data={this.state.userList}
           keyExtractor={(item, index) => index}

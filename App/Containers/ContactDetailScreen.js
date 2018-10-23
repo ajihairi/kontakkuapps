@@ -17,7 +17,7 @@ class ContactDetailScreen extends Component {
     super(props)
     this.state = {
       userDetail: props.navigation.state.params.userData,
-      isDelete: false
+      isDelete: false,
     }
   }
 
@@ -34,7 +34,7 @@ class ContactDetailScreen extends Component {
   componentWillReceiveProps (nextProps) {
     if (!nextProps.userList.fetching) {
       if (nextProps.userList.payload) {
-        // this.setState({userList: nextProps.userList.payload.data, refreshing: false})
+        this.setState({userList: nextProps.userList.payload.data, refreshing: false})
         const data = nextProps.userList.payload.data.filter(item => item.id === this.state.userDetail.id)
         // console.tron.warn(data)
         this.setState({

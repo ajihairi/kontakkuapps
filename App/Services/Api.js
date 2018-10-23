@@ -39,7 +39,7 @@ const create = (baseURL = 'http://contactapp.rahmatzulfikri.xyz/index.php/') => 
   // const getUser = (username) => api.get('search/users', {q: username})
 
 
-  const getUserList = () => api.get('user/')
+  const getUserList = () => api.get('user')
   const getUserDetail = (data) => api.get(`user/${data.id}`, data)
   const createUser = (data) => api.post(`user`, data)
   const updateUserInfo = (data) => api.put(`user/${data.id}`, data)
