@@ -6,7 +6,7 @@ import { Header, Item, Input, Icon, Button, Text, Right } from 'native-base'
 import {Colors} from '../Themes'
 
 export const SearchBar = (props) => (
-  <Header searchBar rounded color={Colors.primaryColor3} style={{backgroundColor: Colors.primaryColor3}} >
+  <Header searchBar rounded androidStatusBarColor={Colors.primaryColor3} style={{backgroundColor: Colors.primaryColor3}} >
     <Item style={{alignItems: 'center'}} >
       <Icon name='ios-search' />
       <Input placeholder='Search' {...props} />

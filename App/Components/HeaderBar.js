@@ -57,7 +57,7 @@ export default class HeaderBar extends Component {
   render () {
     const props = this.props
     return (
-      <Header color={Colors.primaryColor3} style={{backgroundColor: Colors.primaryColor3}} >
+      <Header androidStatusBarColor={Colors.primaryColor3} style={{backgroundColor: Colors.primaryColor3}} >
         <ModalMore visible={this.state.isMore} onClose={() => this.setState({isMore: false})} onPressEdit={this._onPressEdit.bind(this)} onPressDelete={this._onPressDelete.bind(this)} />
         <ModalConfirm visible={this.state.isConfirm} onClose={() => this.setState({isConfirm: false})} onConfirmDelete={this._onConfirmDelete.bind(this)} onCancelDelete={this._onCancelDelete.bind(this)} />
         <Left style={[props.confirm && {flex: 0.7}]}>

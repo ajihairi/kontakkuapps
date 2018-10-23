@@ -1,10 +1,11 @@
 import React from 'react'
 // import PropTypes from 'prop-types';
-import { Modal, View, TouchableWithoutFeedback, TouchableOpacity } from 'react-native'
+import { Modal, View, TouchableWithoutFeedback, TouchableOpacity, Alert } from 'react-native'
 import styles from './Styles/ModalSelectPhotoStyle'
 import { Text } from 'native-base'
 import {Colors} from '../Themes/'
 import ImagePicker from 'react-native-image-crop-picker'
+// import ImagePicker from 'react-native-image-picker';
 
 const openCamera = (callback) => {
   // console.tron.warn('open camera')
@@ -20,6 +21,7 @@ const openCamera = (callback) => {
 }
 
 const openGallery = (callback) => {
+  Alert.alert(callback)
   // console.tron.warn('open gallery')
   ImagePicker.openPicker({
     width: 1024,

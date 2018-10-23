@@ -17,7 +17,7 @@ export const ModalMore = (props) => {
           <TouchableWithoutFeedback>
             <View style={styles.containerMain}>
               <View style={styles.containerContent}>
-                <Header style={{backgroundColor: Colors.white}} color={Colors.white} noShadow>
+                <Header style={{backgroundColor: Colors.white}} androidStatusBarColor={Colors.white} noShadow>
                   <Right>
                     <Button transparent onPress={props.onClose}>
                       <Icon name='close' style={{color: 'black'}} />
