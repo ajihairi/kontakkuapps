@@ -76,11 +76,11 @@ export const INITIAL_STATE = Immutable({
 //   state.merge({ fetching: false, error: true, payload: null })
   
   export const getUserListRequest = (state, {data}) =>
-state.merge({userList: {...state.userList, fetching: true, data}})
+state.merge({userList: {...state.userList, fetching: true, data, payload: null}})
 export const getUserListSuccess = (state, {payload}) =>
 state.merge({userList: {...state.userList, fetching: false, error: null, payload}})
 export const getUserListFailure = (state, {error}) =>
-state.merge({userList: {...state.userList, fetching: false, error}})
+state.merge({userList: {...state.userList, fetching: false, error, payload: null}})
 
 export const getUserDetailRequest = (state, {data}) =>
 state.merge({userDetail: {...state.userDetail, fetching: true, data}})

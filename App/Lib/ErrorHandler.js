@@ -1,4 +1,4 @@
-import { Platform, ToastAndroid, Alert } from 'react-native'
+import { Platform, Alert } from 'react-native'
 
 function ErrorHandler (payload) {
   // console.tron.warn('-----ERROR------')

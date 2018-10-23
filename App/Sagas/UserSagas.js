@@ -13,11 +13,14 @@
 import { call, put, all } from 'redux-saga/effects'
 import UserActions from '../Redux/UserRedux'
 import { ErrorHandler } from '../Lib/ErrorHandler'
+import api from '../Services/Api';
 
 export function * getUserList (api, action) {
   const { data } = action
   const response = yield call(api.getUserList, data)
-
+  console.log("api.getUseraList", api.getUserList)
+  console.log("ini Respon", response)
+  console.log("ini ap", api)
   if (response.ok) {
     yield put(UserActions.getUserListSuccess(response.data))
   } else {

@@ -34,12 +34,12 @@ const create = (baseURL = 'http://contactapp.rahmatzulfikri.xyz/index.php/') => 
   // Since we can't hide from that, we embrace it by getting out of the
   // way at this level.
   //
-  // const getRoot = () => api.get('')
-  // const getRate = () => api.get('rate_limit')
-  // const getUser = (username) => api.get('search/users', {q: username})
+  const getRoot = () => api.get('')
+  const getRate = () => api.get('rate_limit')
+  const getUser = (username) => api.get('search/users', {q: username})
 
 
-  const getUserList = () => api.get('user')
+  const getUserList = () => api.get('user/')
   const getUserDetail = (data) => api.get(`user/${data.id}`, data)
   const createUser = (data) => api.post(`user`, data)
   const updateUserInfo = (data) => api.put(`user/${data.id}`, data)
@@ -59,9 +59,9 @@ const create = (baseURL = 'http://contactapp.rahmatzulfikri.xyz/index.php/') => 
   //
   return {
     // a list of the API functions from step 2
-    // getRoot,
-    // getRate,
-    // getUser
+    getRoot,
+    getRate,
+    getUser,
 
     getUserList,
     getUserDetail,
