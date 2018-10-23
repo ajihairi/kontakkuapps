@@ -1,5 +1,5 @@
 import React, { Component } from 'react'
-import { Image } from 'react-native'
+import { ImageBackground } from 'react-native'
 import { connect } from 'react-redux'
 import { NavigationActions } from 'react-navigation'
 
@@ -92,11 +92,11 @@ class ContactDetailScreen extends Component {
         <Content style={{backgroundColor: Colors.white}} >
           {userDetail.photo
           ? <Content>
-            <Image source={{uri: userDetail.photo}} style={{width: Metrics.screenWidth, height: Metrics.screenWidth, justifyContent: 'flex-end'}} >
+            <ImageBackground source={{uri: userDetail.photo}} style={{width: Metrics.screenWidth, height: Metrics.screenWidth, justifyContent: 'flex-end'}} >
               <View style={{margin: 5, flexDirection: 'row', alignItems: 'center'}}>
                 <Text style={{backgroundColor: Colors.primaryColor2, color: Colors.white, padding: 10, borderRadius: 5}}>{userDetail.first_name + ' ' + userDetail.last_name}</Text>
               </View>
-            </Image>
+            </ImageBackground>
           </Content>
           : <Content>
             <LinearGradient
