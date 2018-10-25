@@ -1,5 +1,9 @@
 import React, { Component } from 'react'
+<<<<<<< HEAD
 import { ImageBackground } from 'react-native'
+=======
+import { Image, ImageBackground } from 'react-native'
+>>>>>>> fix-http
 import { connect } from 'react-redux'
 import { NavigationActions } from 'react-navigation'
 
@@ -24,6 +28,7 @@ class ContactDetailScreen extends Component {
   _onPressEdit () {
     const {navigate} = this.props.navigation
     navigate('ContactAddScreen', {userData: this.state.userDetail})
+    console.log("user detail", this.state.userDetail )
   }
 
   _onPressDelete () {
@@ -36,7 +41,7 @@ class ContactDetailScreen extends Component {
       if (nextProps.userList.payload) {
         this.setState({userList: nextProps.userList.payload.data, refreshing: false})
         const data = nextProps.userList.payload.data.filter(item => item.id === this.state.userDetail.id)
-        // console.tron.warn(data)
+        console.log(data)
         this.setState({
           userDetail: {...data[0]}
         })
@@ -114,7 +119,7 @@ class ContactDetailScreen extends Component {
           <List style={{backgroundColor: Colors.white}}>
             <ListItem>
               <Icon name='phone-portrait' style={styles.iconStyle} />
-              <Text>{userDetail.phone}</Text>
+              <Text>{userDetail.phone}{console.log("nomorr", userDetail.phone)}</Text>
             </ListItem>
             <ListItem>
               <Icon name='mail' style={styles.iconStyle} />

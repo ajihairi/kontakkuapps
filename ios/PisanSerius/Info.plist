@@ -30,6 +30,14 @@
 	<array>
 		<string>armv7</string>
 	</array>
+	<key>NSCameraUsageDescription</key>
+	<string>need this to access device's camera</string>
+	<key>NSPhotoLibraryAddUsageDescription</key>
+	<string>Need this to access Libary in device</string>
+	<key>NSPhotoLibraryUsageDescription</key>
+	<string>need this to access library</string>
+	<key>NSMicrophoneUsageDescription</key>
+	<string>we dont need this on our apps</string>
 	<key>UISupportedInterfaceOrientations</key>
 	<array>
 		<string>UIInterfaceOrientationPortrait</string>
