@@ -2,7 +2,7 @@
 import apisauce from 'apisauce'
 
 // our "constructor"
-const create = (baseURL = 'http://contactapp.rahmatzulfikri.xyz/index.php/') => {
+const create = (baseURL = 'http://contactapp.rahmatzulfikri.xyz/index.php') => {
   // ------
   // STEP 1
   // ------
@@ -39,12 +39,12 @@ const create = (baseURL = 'http://contactapp.rahmatzulfikri.xyz/index.php/') => 
   // const getUser = (username) => api.get('search/users', {q: username})
 
 
-  const getUserList = () => api.get('user')
-  const getUserDetail = (data) => api.get(`user/${data.id}`, data)
-  const createUser = (data) => api.post(`user`, data)
-  const updateUserInfo = (data) => api.put(`user/${data.id}`, data)
-  const deleteUser = (data) => api.delete(`user/${data.id}`)
-  const uploadUserPhoto = (data) => api.post(`user/upload/${data.id}`, data.file)
+  const getUserList = () => api.get('/user/')
+  const getUserDetail = (data) => api.get(`/user/${data.id}`, data)
+  const createUser = (data) => api.post(`/user`, data)
+  const updateUserInfo = (data) => api.put(`/user/${data.id}`, data)
+  const deleteUser = (data) => api.delete(`/user/${data.id}`)
+  const uploadUserPhoto = (data) => api.post(`/user/upload/${data.id}`, data.file)
   // ------
   // STEP 3
   // ------

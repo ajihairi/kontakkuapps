@@ -1,7 +1,7 @@
 import React from 'react'
-// import PropTypes from 'prop-types';
-// import { View, Text } from 'react-native'
-import { Left, Text, Body, View } from 'native-base'
+import PropTypes from 'prop-types';
+import { View, Text } from 'react-native'
+import { Left, Body } from 'native-base'
 import { ListItem } from '../Components/ListItem'
 // import styles from './Styles/ContactRowStyle'
 import {Avatar} from './Avatar'

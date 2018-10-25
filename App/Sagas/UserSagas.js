@@ -32,6 +32,8 @@ export function * getUserDetail (api, action) {
 
   if (response.ok) {
     yield put(UserActions.getUserDetailSuccess(response.data))
+    console.log("ini data detail", response.data)
+    
   } else {
     ErrorHandler(response)
     yield put(UserActions.getUserDetailFailure(response))
@@ -99,7 +101,7 @@ export function * updateUserInfo (api, action) {
       }
 
       const responseImage = yield call(api.uploadUserPhoto, param)
-      console.tron.warn(responseImage)
+      console.log(responseImage)
       if (responseImage.ok) {
         // yield all([
         //   put(UserActions.updateUserInfoSuccess(responseImage.data)),

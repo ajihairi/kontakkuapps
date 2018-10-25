@@ -1,5 +1,5 @@
 import React, { Component } from 'react'
-import { FlatList } from 'react-native'
+import { FlatList,TouchableHighlight, ScrollView, TouchableOpacity, View } from 'react-native'
 import { Container, Icon, Fab } from 'native-base'
 import { connect } from 'react-redux'
 // Add Actions - replace 'Your' with whatever your reducer is called :)
@@ -44,7 +44,9 @@ class ContactListScreen extends Component {
     const {navigate} = this.props.navigation
 
     return (
-      <Container>
+      <View>
+
+
         <FlatList
           data={this.state.userList}
           keyExtractor={(item, index) => index}
@@ -62,7 +64,7 @@ class ContactListScreen extends Component {
           onPress={() => navigate('ContactAddScreen')}>
           <Icon name='add' />
         </Fab>
-      </Container>
+      </View>
     )
   }
 }

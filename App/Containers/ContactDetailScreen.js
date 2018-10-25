@@ -1,5 +1,5 @@
 import React, { Component } from 'react'
-import { Image } from 'react-native'
+import { Image, ImageBackground } from 'react-native'
 import { connect } from 'react-redux'
 import { NavigationActions } from 'react-navigation'
 
@@ -24,6 +24,7 @@ class ContactDetailScreen extends Component {
   _onPressEdit () {
     const {navigate} = this.props.navigation
     navigate('ContactAddScreen', {userData: this.state.userDetail})
+    console.log("user detail", this.state.userDetail )
   }
 
   _onPressDelete () {
@@ -36,7 +37,7 @@ class ContactDetailScreen extends Component {
       if (nextProps.userList.payload) {
         this.setState({userList: nextProps.userList.payload.data, refreshing: false})
         const data = nextProps.userList.payload.data.filter(item => item.id === this.state.userDetail.id)
-        // console.tron.warn(data)
+        console.log(data)
         this.setState({
           userDetail: {...data[0]}
         })
@@ -92,11 +93,11 @@ class ContactDetailScreen extends Component {
         <Content style={{backgroundColor: Colors.white}} >
           {userDetail.photo
           ? <Content>
-            <Image source={{uri: userDetail.photo}} style={{width: Metrics.screenWidth, height: Metrics.screenWidth, justifyContent: 'flex-end'}} >
+            <ImageBackground source={{uri: userDetail.photo}} style={{width: Metrics.screenWidth, height: Metrics.screenWidth, justifyContent: 'flex-end'}} >
               <View style={{margin: 5, flexDirection: 'row', alignItems: 'center'}}>
                 <Text style={{backgroundColor: Colors.primaryColor2, color: Colors.white, padding: 10, borderRadius: 5}}>{userDetail.first_name + ' ' + userDetail.last_name}</Text>
               </View>
-            </Image>
+            </ImageBackground>
           </Content>
           : <Content>
             <LinearGradient
@@ -114,7 +115,7 @@ class ContactDetailScreen extends Component {
           <List style={{backgroundColor: Colors.white}}>
             <ListItem>
               <Icon name='phone-portrait' style={styles.iconStyle} />
-              <Text>{userDetail.phone}</Text>
+              <Text>{userDetail.phone}{console.log("nomorr", userDetail.phone)}</Text>
             </ListItem>
             <ListItem>
               <Icon name='mail' style={styles.iconStyle} />
